@@ -1,0 +1,47 @@
+<div class="devise-container">
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "devise-form" }) do |f| %>
+  <h2 class="devise-title">新規登録</h2>
+
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <!-- ユーザー名フィールド -->
+  <div class="devise-field">
+    <%= f.label :name, "ユーザー名", class: "devise-label" %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "devise-input" %>
+  </div>
+
+  <!-- メールアドレスフィールド -->
+  <div class="devise-field">
+    <%= f.label :email, "メールアドレス", class: "devise-label" %><br />
+    <%= f.email_field :email, autocomplete: "email", class: "devise-input" %>
+  </div>
+
+  <!-- パスワードフィールド -->
+  <div class="devise-field">
+    <%= f.label :password, "パスワード", class: "devise-label" %>
+    <% if @minimum_password_length %>
+      <em class="devise-note">(<%= @minimum_password_length %>文字以上)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password", class: "devise-input" %>
+  </div>
+
+  <!-- パスワード確認フィールド -->
+  <div class="devise-field">
+    <%= f.label :password_confirmation, "パスワード確認", class: "devise-label" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "devise-input" %>
+  </div>
+
+  <!-- 登録ボタン -->
+  <div class="devise-actions">
+    <%= f.submit "新規登録", class: "devise-button-primary" %>
+  </div>
+
+  <!-- ログインページへのリンク -->
+  <div class="devise-links">
+    <%= link_to "ログインはこちら", new_user_session_path, class: "devise-login-link" %>
+  </div>
+
+<% end %>
+
+</div>

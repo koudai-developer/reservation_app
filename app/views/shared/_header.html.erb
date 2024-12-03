@@ -2,8 +2,15 @@
   <div class="header-container">
     <a href="/" class="header-logo">Reservation App</a>
     <nav class="header-nav">
-      <a href="/users/sign_in" class="header-nav-btn">ログイン</a>
-      <a href="/users/sign_up" class="header-nav-btn header-nav-btn-primary">新規登録</a>
+      <% if user_signed_in? %>
+        <div class="header-user-menu">
+          <span class="header-user-name"><%= current_user.name %> さん</span>
+          <%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "header-nav-btn" %>
+        </div>
+      <% else %>
+        <a href="<%= new_user_session_path %>" class="header-nav-btn">ログイン</a>
+        <a href="<%= new_user_registration_path %>" class="header-nav-btn header-nav-btn-primary">新規登録</a>
+      <% end %>
     </nav>
   </div>
 </header>

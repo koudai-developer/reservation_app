@@ -3,8 +3,6 @@
   background-color: #f0f0f0;
   border-bottom: 1px solid #e9ecef;
   padding: 10px 0;
-  position: fixed;
-  z-index: 1000;
 }
 
 .header-container {
@@ -51,4 +49,15 @@
 
 .header-nav-btn-primary:hover {
   background-color: #0056b3;
+}
+
+.header-user-menu {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-user-name {
+  font-weight: bold;
+  color: #333;
 }

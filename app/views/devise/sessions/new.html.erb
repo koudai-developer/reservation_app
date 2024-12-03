@@ -1,0 +1,40 @@
+<div class="devise-container">
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "devise-form" }) do |f| %>
+    <h2 class="devise-title">ログイン</h2>
+
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <!-- メールアドレスフィールド -->
+    <div class="devise-field">
+      <%= f.label :email, "メールアドレス", class: "devise-label" %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "devise-input" %>
+    </div>
+
+    <!-- パスワードフィールド -->
+    <div class="devise-field">
+      <%= f.label :password, "パスワード", class: "devise-label" %><br />
+      <%= f.password_field :password, autocomplete: "current-password", class: "devise-input" %>
+    </div>
+
+    <!-- ログインを記憶 -->
+    <% if devise_mapping.rememberable? %>
+      <div class="devise-field">
+        <%= f.check_box :remember_me, class: "devise-checkbox" %>
+        <%= f.label :remember_me, "ログイン情報を記憶する", class: "devise-label-inline" %>
+      </div>
+    <% end %>
+
+    <!-- ログインボタン -->
+    <div class="devise-actions">
+      <%= f.submit "ログイン", class: "devise-button-primary" %>
+    </div>
+
+    <!-- ログインページへのリンク -->
+    <div class="devise-links">
+      <%= link_to "新規登録はこちら", new_user_registration_path, class: "devise-login-link" %>
+    </div>
+
+  <% end %>
+
+</div>
