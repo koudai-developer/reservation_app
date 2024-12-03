@@ -1,0 +1,87 @@
+.entrance-hero {
+  position: relative;
+  height: 750px;
+  background: url('/assets/sea.jpg') no-repeat center center/cover;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.entrance-hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.entrance-search {
+  margin-top: 20px;
+}
+
+.entrance-search-input {
+  padding: 10px 15px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.entrance-search-button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.entrance-search-button:hover {
+  background-color: #0056b3;
+}
+
+/* おすすめエリア */
+.entrance-areas {
+  padding: 50px 20px;
+  text-align: center;
+  height: 500px;
+}
+
+.entrance-areas h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.entrance-area-list {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.entrance-area-item {
+  flex: 1;
+  max-width: 200px;
+  position: relative;
+}
+
+.entrance-area-image {
+  width: 100%;
+  padding-top: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  position: relative;
+}
+
+.entrance-area-name {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}

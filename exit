@@ -1,0 +1,17 @@
+[33mcommit ede420259f2c32bb38c0bf8b7ef74bf9dfb902f7[m[33m ([m[1;36mHEAD -> [m[1;32mdevelop[m[33m)[m
+Author: ko-dai0102 <koudai.tanno@gmail.com>
+Date:   Tue Dec 3 17:18:25 2024 +0900
+
+    コントローラーとルーティングの準備
+
+[33mcommit 25ebbf3a16c0e86051dd7403f25694936d1b26fa[m
+Author: ko-dai0102 <koudai.tanno@gmail.com>
+Date:   Mon Dec 2 22:53:57 2024 +0900
+
+    データベース設計の仮完了
+
+[33mcommit 92e75c0c77d6809425ad2c3ee8a1ea0388673738[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: ko-dai0102 <koudai.tanno@gmail.com>
+Date:   Sun Dec 1 13:32:23 2024 +0900
+
+    プロジェクトの作成

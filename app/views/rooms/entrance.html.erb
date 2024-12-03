@@ -1,1 +1,52 @@
-<%= render "shared/header" %>
+<div class="entrance">
+
+  <!-- ファーストビュー -->
+  <section class="entrance-hero">
+    <div class="entrance-hero-text">
+      <h1>ReservationAppで新しい旅へ</h1>
+    </div>
+    <div class="entrance-search">
+      <form action="/rooms/search" method="get">
+        <input type="text" name="query" placeholder="行き先を検索" class="entrance-search-input">
+        <button type="submit" class="entrance-search-button">検索</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- おすすめエリア -->
+  <section class="entrance-areas">
+  <h2>おすすめエリア</h2>
+  <div class="entrance-area-list">
+    <div class="entrance-area-item">
+      <a href="<%= rooms_path %>" class="entrance-area-link">
+        <div class="entrance-area-image" style="background-image: url('/assets/tokyo.jpg')">
+          <span class="entrance-area-name">東京</span>
+        </div>
+      </a>
+    </div>
+    <div class="entrance-area-item">
+      <a href="<%= rooms_path %>" class="entrance-area-link">
+        <div class="entrance-area-image" style="background-image: url('/assets/osaka.jpg')">
+          <span class="entrance-area-name">大阪</span>
+        </div>
+      </a>
+    </div>
+    <div class="entrance-area-item">
+      <a href="<%= rooms_path %>" class="entrance-area-link">
+        <div class="entrance-area-image" style="background-image: url('/assets/kyoto.jpg')">
+          <span class="entrance-area-name">京都</span>
+        </div>
+      </a>
+    </div>
+    <div class="entrance-area-item">
+      <a href="<%= rooms_path %>" class="entrance-area-link">
+        <div class="entrance-area-image" style="background-image: url('/assets/saporo.jpg')">
+          <span class="entrance-area-name">札幌</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+</div>
