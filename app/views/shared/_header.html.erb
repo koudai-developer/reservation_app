@@ -3,9 +3,20 @@
     <a href="/" class="header-logo">Reservation App</a>
     <nav class="header-nav">
       <% if user_signed_in? %>
-        <div class="header-user-menu">
-          <span class="header-user-name"><%= current_user.name %> さん</span>
-          <%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "header-nav-btn" %>
+        <div class="header-user-menu" id="dropdown-start">
+          <%if current_user.profile_image.present? %>
+            <%= image_tag current_user.profile_image.url, alt: "ユーザーアイコン", class: "header-user-icon" %>
+          <% else %>
+            <%= image_tag "default-icon.png", alt: "ユーザーアイコン", class: "header-user-icon" %>
+          <% end %>
+          <span class="header-user-name"><%= current_user.name %>∨</span>
+        </div>
+        <div class="header-dropdown-menu" id="dropdown-menu">
+          <%= link_to "施設の新規登録", new_room_path, class: "header-dropdown-item" %>
+          <%= link_to "予約済み一覧", reservations_path, class: "header-dropdown-item" %>
+          <%= link_to "登録済み一覧", rooms_path, class: "header-dropdown-item" %>
+          <%= link_to "アカウント設定", edit_user_registration_path, class: "header-dropdown-item" %>
+          <%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "header-dropdown-item" %>
         </div>
       <% else %>
         <a href="<%= new_user_session_path %>" class="header-nav-btn">ログイン</a>

@@ -9,7 +9,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
   margin: 0 auto;
   padding: 10px 20px;
 }
@@ -52,12 +51,45 @@
 }
 
 .header-user-menu {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 10px;
+}
+
+.header-user-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
 }
 
 .header-user-name {
   font-weight: bold;
   color: #333;
+  cursor: pointer;
+}
+
+.header-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.header-dropdown-item {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+}
+
+.header-dropdown-item:hover {
+  background-color: #f8f9fa;
 }
