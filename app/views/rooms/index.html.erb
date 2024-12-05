@@ -3,8 +3,8 @@
   <!-- 検索フォーム -->
   <div class="rooms-search-container">
     <%= form_with url: rooms_path, method: :get, local: true, class: "rooms-search-form" do %>
-      <%= select_tag :area, options_for_select(["東京", "大阪", "京都", "札幌"], params[:area]), class: "rooms-search-select" %>
-      <%= text_field_tag :query, params[:query], placeholder: "施設名や詳細を検索", class: "rooms-search-input" %>
+      <%= text_field_tag :area, params[:area], placeholder: "エリア名で検索", class: "rooms-search-input" %>
+      <%= text_field_tag :query, params[:query], placeholder: "キーワードで検索", class: "rooms-search-input" %>
       <%= submit_tag "検索", class: "rooms-search-button" %>
     <% end %>
   </div>

@@ -7,7 +7,7 @@ class RoomsController < ApplicationController
 
   def index
     if params[:query].present?
-      @rooms = Room.where("name LIKE ? OR detail LIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
+      @rooms = Room.where("name LIKE ? OR description LIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
     elsif params[:area].present?
       @rooms = Room.where("address LIKE ?", "%#{params[:area]}%")
     else
