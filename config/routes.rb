@@ -16,7 +16,11 @@ Rails.application.routes.draw do
     member do
       get :registered
     end
-    resources :reservations, only: [:new, :create]
+    resources :reservations, only: [:new, :create] do
+      collection do
+        post :confirm
+      end
+    end
   end
 
   resources :reservations, only: [:index, :show, :destroy]

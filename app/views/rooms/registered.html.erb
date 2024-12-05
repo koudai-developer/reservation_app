@@ -25,7 +25,7 @@
           </td>
           <td class="table-cell"><%= room.name %></td>
           <td class="table-cell"><%= truncate(room.description, length: 50) %></td>
-          <td class="table-cell">¥<%= room.price %></td>
+          <td class="table-cell">¥<%= number_with_delimiter(room.price) %></td>
           <td class="table-cell"><%= room.created_at.strftime("%Y/%m/%d") %></td>
         </tr>
       <% end %>

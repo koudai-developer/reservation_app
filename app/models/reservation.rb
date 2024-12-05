@@ -6,13 +6,13 @@ class Reservation < ApplicationRecord
   validates :check_out_date, presence: true
   validates :guests_count, presence: true, numericality: { greater_than_or_equal_to: 1 }
 
-  validate :out_after_in
+  validate :check_out_after_check_in
 
-  def out_after_in
-    return if check_out_date.blank? || check_in_date.blank?
+  private
 
-    if check_out_date < check_in_date
-      errors.add(:check_out_date, "はチェックイン日時より後に設定してください")
+  def check_out_after_check_in
+    if check_in_date.present? && check_out_date.present? && check_out_date <= check_in_date
+      errors.add(:check_out_date, "はチェックイン日より後の日付を選択してください")
     end
   end
 

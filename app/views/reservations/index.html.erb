@@ -1,0 +1,38 @@
+<div class="reservation-container">
+  <!-- タイトル -->
+  <h1 class="reservation-title">予約済み一覧</h1>
+
+  <!-- テーブル形式で予約情報を表示 -->
+  <table class="reservation-table">
+    <thead>
+      <tr>
+        <th class="table-header">画像</th>
+        <th class="table-header">施設名</th>
+        <th class="table-header">紹介文</th>
+        <th class="table-header">合計料金</th>
+        <th class="table-header">チェックイン</th>
+        <th class="table-header">チェックアウト</th>
+        <th class="table-header">予約確定日時</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @reservations.each do |reservation| %>
+        <tr class="reservation-row" onclick="location.href='<%= room_path(reservation.room) %>'">
+          <td class="table-cell">
+            <% if reservation.room.image.attached? %>
+              <%= image_tag reservation.room.image, class: "table-image" %>
+            <% else %>
+              <%= image_tag "default-image.png", class: "table-image" %>
+            <% end %>
+          </td>
+          <td class="table-cell"><%= reservation.room.name %></td>
+          <td class="table-cell"><%= truncate(reservation.room.description, length: 50) %></td>
+          <td class="table-cell">¥<%= number_with_delimiter(reservation.total_price) %></td>
+          <td class="table-cell"><%= reservation.check_in_date.strftime("%Y/%m/%d") %></td>
+          <td class="table-cell"><%= reservation.check_out_date.strftime("%Y/%m/%d") %></td>
+          <td class="table-cell"><%= reservation.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
