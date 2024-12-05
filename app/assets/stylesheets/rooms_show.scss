@@ -7,6 +7,11 @@
 }
 
 /* 戻るリンク */
+.detail-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
 .room-detail-back {
   margin-bottom: 20px;
 }
@@ -125,3 +130,5 @@
 .reservation-button:hover {
   background-color: #0056b3;
 }
+
+

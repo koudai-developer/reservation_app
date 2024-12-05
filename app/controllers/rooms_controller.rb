@@ -47,6 +47,10 @@ class RoomsController < ApplicationController
     redirect_to rooms_path, notice: "施設が削除されました。"
   end
 
+  def registered
+    @rooms = current_user.rooms.order(created_at: :desc)
+  end
+
   private
 
   def set_room

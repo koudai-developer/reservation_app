@@ -1,7 +1,18 @@
 <div class="room-detail-container">
-  <!-- 戻るリンク -->
-  <div class="room-detail-back">
-    <%= link_to "← 戻る", rooms_path, class: "room-back-link" %>
+
+  <div class="detail-actions">
+    <!-- 戻るリンク -->
+    <div class="room-detail-back">
+      <%= link_to "← 戻る", :back, class: "room-back-link" %>
+    </div>
+
+    <!-- 右上の編集・削除ボタン -->
+    <% if @room.user == current_user %>
+      <div>
+        <%= link_to "編集", edit_room_path(@room), class: "room-back-link" %>
+        <%= link_to "削除", room_path(@room), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "room-back-link" %>
+      </div>
+    <% end %>
   </div>
 
   <!-- 詳細ページの内容 -->
@@ -26,16 +37,16 @@
       <%= form_with url: room_reservations_path(@room), method: :post, local: true, class: "room-reservation-form" do |f| %>
         <div class="reservation-fields">
           <div class="reservation-field">
-            <%= f.label :check_in, "チェックイン日時" %>
-            <%= f.datetime_select :check_in, class: "reservation-input" %>
+            <%= f.label :check_in_date, "チェックイン日時" %>
+            <%= f.date_select :check_in_date, class: "reservation-input" %>
           </div>
           <div class="reservation-field">
-            <%= f.label :check_out, "チェックアウト日時" %>
-            <%= f.datetime_select :check_out, class: "reservation-input" %>
+            <%= f.label :check_out_date, "チェックアウト日時" %>
+            <%= f.date_select :check_out_date, class: "reservation-input" %>
           </div>
           <div class="reservation-field">
-            <%= f.label :guests, "人数" %>
-            <%= f.number_field :guests, min: 1, value: 1, class: "reservation-input" %>
+            <%= f.label :guests_count, "人数" %>
+            <%= f.number_field :guests_count, min: 1, value: 1, class: "reservation-input" %>
           </div>
         </div>
         <div class="reservation-submit">

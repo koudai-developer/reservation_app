@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   root "rooms#entrance"
 
   resources :rooms do
+    member do
+      get :registered
+    end
     resources :reservations, only: [:new, :create]
   end
 
