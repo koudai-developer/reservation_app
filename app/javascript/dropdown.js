@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbolinks:load", () => {
   const dropDownStart = document.getElementById("dropdown-start");
   const dropDownMenu = document.getElementById("dropdown-menu");
 

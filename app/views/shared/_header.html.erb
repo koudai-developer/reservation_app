@@ -4,8 +4,8 @@
     <nav class="header-nav">
       <% if user_signed_in? %>
         <div class="header-user-menu" id="dropdown-start">
-          <%if current_user.profile_image.present? %>
-            <%= image_tag current_user.profile_image.url, alt: "ユーザーアイコン", class: "header-user-icon" %>
+          <%if current_user.profile_image.attached? %>
+            <%= image_tag current_user.profile_image, alt: "ユーザーアイコン", class: "header-user-icon" %>
           <% else %>
             <%= image_tag "default-icon.png", alt: "ユーザーアイコン", class: "header-user-icon" %>
           <% end %>
@@ -15,7 +15,7 @@
           <%= link_to "施設の新規登録", new_room_path, class: "header-dropdown-item" %>
           <%= link_to "予約済み一覧", reservations_path, class: "header-dropdown-item" %>
           <%= link_to "登録済み一覧", rooms_path, class: "header-dropdown-item" %>
-          <%= link_to "アカウント設定", edit_user_registration_path, class: "header-dropdown-item" %>
+          <%= link_to "アカウント設定", users_index_path, class: "header-dropdown-item" %>
           <%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "header-dropdown-item" %>
         </div>
       <% else %>

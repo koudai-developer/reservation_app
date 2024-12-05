@@ -1,0 +1,83 @@
+.settings-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.settings-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.settings-nav {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.settings-nav ul {
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.settings-nav-item {
+  list-style: none;
+}
+
+.settings-nav-link {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #007bff;
+  border-bottom: 2px solid transparent;
+  padding: 5px 10px;
+  transition: border-color 0.3s;
+}
+
+.settings-nav-link.active,
+.settings-nav-link:hover {
+  border-color: #007bff;
+}
+
+.settings-section {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.settings-section-title {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.settings-info p {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.settings-edit-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.settings-edit-link:hover {
+  background-color: #0056b3;
+}
+
+.settings-profile-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}

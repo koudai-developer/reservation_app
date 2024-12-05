@@ -1,0 +1,42 @@
+<div class="profile-edit-container">
+
+  <%= form_for(current_user, url: update_profile_user_path(current_user), method: :patch, html: { multipart: true, class: "profile-edit-form" }) do |f| %>
+    <h2 class="profile-edit-title">プロフィール設定</h2>
+
+    <%= render "shared/error_messages", resource: current_user %>
+
+    <!-- アイコン変更フィールド -->
+    <div class="profile-edit-field">
+      <%= f.label :profile_image, "プロフィール画像", class: "profile-edit-label" %><br />
+      <% if current_user.profile_image.attached? %>
+        <%= image_tag current_user.profile_image, alt: "現在のプロフィール画像", class: "profile-edit-image-preview" %>
+      <% else %>
+        <%= image_tag "default-icon.png", alt: "デフォルト画像", class: "profile-edit-image-preview" %>
+      <% end %>
+      <%= f.file_field :profile_image, class: "profile-edit-input-file" %>
+    </div>
+
+    <!-- 名前変更フィールド -->
+    <div class="profile-edit-field">
+      <%= f.label :name, "名前", class: "profile-edit-label" %><br />
+      <%= f.text_field :name, class: "profile-edit-input" %>
+    </div>
+
+    <!-- 自己紹介変更フィールド -->
+    <div class="profile-edit-field">
+      <%= f.label :introduction, "自己紹介", class: "profile-edit-label" %><br />
+      <%= f.text_area :introduction, rows: 5, class: "profile-edit-textarea" %>
+    </div>
+
+    <!-- 保存ボタン -->
+    <div class="profile-edit-actions">
+      <%= f.submit "保存", class: "profile-edit-button" %>
+    </div>
+
+    <div class="profile-edit-links">
+      <%= link_to "戻る", :back, class: "profile-edit-back-link" %>
+    </div>
+
+  <% end %>
+  
+</div>
