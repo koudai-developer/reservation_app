@@ -1,0 +1,27 @@
+<h1>施設一覧</h1>
+
+<%= form_with url: rooms_path, method: :get, local: true do %>
+  <%= text_field_tag :query, params[:query], placeholder: "施設名や詳細を検索" %>
+  <%= submit_tag "検索" %>
+<% end %>
+
+<%= form_with url: rooms_path, method: :get, local: true do %>
+  <%= select_tag :area, options_for_select(["東京", "大阪", "京都", "札幌"], params[:area]) %>
+  <%= submit_tag "エリア検索" %>
+<% end %>
+
+<p><%= @rooms.count %>件見つかりました</p>
+
+<ul>
+  <% @rooms.each do |room| %>
+    <li>
+      <% if room.image.attached? %>
+        <%= image_tag room.image, style: "width: 150px; height: 100px;" %>
+      <% end %>
+      <strong><%= link_to room.name, room_path(room) %></strong>
+      <p><%= room.address %></p>
+      <p><%= room.description %></p>
+      <p>¥<%= room.price %>/日</p>
+    </li>
+  <% end %>
+</ul>

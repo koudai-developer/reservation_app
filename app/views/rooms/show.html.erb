@@ -1,0 +1,13 @@
+<h1><%= @room.name %></h1>
+
+<% if @room.image.attached? %>
+  <%= image_tag @room.image, style: "width: 300px; height: 200px;" %>
+<% end %>
+
+<p>料金: ¥<%= @room.price %>/日</p>
+<p>住所: <%= @room.address %></p>
+<p>詳細: <%= @room.description %></p>
+
+<%= link_to "編集", edit_room_path(@room) %> |
+<%= link_to "削除", room_path(@room), method: :delete, data: { confirm: "本当に削除しますか？" } %> |
+<%= link_to "一覧に戻る", rooms_path %>
