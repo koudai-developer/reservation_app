@@ -1,6 +1,7 @@
 class ReservationsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_room, only: [:create]
+  before_action :set_reservation, only: [:destroy]
 
   def index
     @reservations = current_user.reservations.includes(:room).order(created_at: :desc)
@@ -30,10 +31,19 @@ class ReservationsController < ApplicationController
     end
   end
 
+  def destroy
+    @reservation.destroy
+    redirect_to reservations_path, notice: "予約が削除されました。"
+  end
+
   private
 
   def set_room
     @room = Room.find(params[:room_id])
+  end
+
+  def set_reservation
+    @reservation = Reservation.find(params[:id])
   end
 
   def reservation_params

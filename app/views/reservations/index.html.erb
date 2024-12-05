@@ -17,21 +17,23 @@
     </thead>
     <tbody>
       <% @reservations.each do |reservation| %>
-        <tr class="reservation-row" onclick="location.href='<%= room_path(reservation.room) %>'">
-          <td class="table-cell">
-            <% if reservation.room.image.attached? %>
-              <%= image_tag reservation.room.image, class: "table-image" %>
-            <% else %>
-              <%= image_tag "default-image.png", class: "table-image" %>
-            <% end %>
-          </td>
-          <td class="table-cell"><%= reservation.room.name %></td>
-          <td class="table-cell"><%= truncate(reservation.room.description, length: 50) %></td>
-          <td class="table-cell">¥<%= number_with_delimiter(reservation.total_price) %></td>
-          <td class="table-cell"><%= reservation.check_in_date.strftime("%Y/%m/%d") %></td>
-          <td class="table-cell"><%= reservation.check_out_date.strftime("%Y/%m/%d") %></td>
-          <td class="table-cell"><%= reservation.created_at.strftime("%Y/%m/%d %H:%M") %></td>
-        </tr>
+        <%= link_to reservation_path(reservation), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "reservation-row-link" do %>
+          <tr class="reservation-row">
+            <td class="table-cell">
+              <% if reservation.room.image.attached? %>
+                <%= image_tag reservation.room.image, class: "table-image" %>
+              <% else %>
+                <%= image_tag "default-image.png", class: "table-image" %>
+              <% end %>
+            </td>
+            <td class="table-cell"><%= reservation.room.name %></td>
+            <td class="table-cell"><%= truncate(reservation.room.description, length: 50) %></td>
+            <td class="table-cell">¥<%= number_with_delimiter(reservation.total_price) %></td>
+            <td class="table-cell"><%= reservation.check_in_date.strftime("%Y/%m/%d") %></td>
+            <td class="table-cell"><%= reservation.check_out_date.strftime("%Y/%m/%d") %></td>
+            <td class="table-cell"><%= reservation.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+          </tr>
+        <% end %>
       <% end %>
     </tbody>
   </table>
