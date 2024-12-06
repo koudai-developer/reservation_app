@@ -1,0 +1,111 @@
+/* 全体のコンテナ */
+.rooms-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+/* 検索フォーム */
+.rooms-search-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.rooms-search-form {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 10px;
+}
+
+.rooms-search-select,
+.rooms-search-input,
+.rooms-search-button {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.rooms-search-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.rooms-search-button:hover {
+  background-color: #0056b3;
+}
+
+/* 検索結果件数 */
+.rooms-results-count {
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* グリッドレイアウト */
+.rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* 施設カード */
+.room-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.room-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* 施設リンク */
+.room-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* 画像 */
+.room-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* 情報 */
+.room-info {
+  padding: 15px;
+}
+
+.room-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.room-address,
+.room-description,
+.room-price {
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.room-price {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #007bff;
+}

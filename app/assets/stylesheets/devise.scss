@@ -1,0 +1,75 @@
+.devise-title {
+  text-align: center;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.devise-container {
+  display: flex;
+  justify-content: center;
+  margin: 50px 0;
+}
+
+.devise-form {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.devise-field {
+  margin-bottom: 15px;
+}
+
+.devise-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.devise-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.devise-note {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.devise-actions {
+  text-align: center;
+}
+
+.devise-button-primary {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.devise-button-primary:hover {
+  background-color: #0056b3;
+}
+
+.devise-links {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.devise-login-link {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.devise-login-link:hover {
+  text-decoration: underline;
+}

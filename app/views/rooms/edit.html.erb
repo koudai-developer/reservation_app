@@ -1,0 +1,51 @@
+<div class="devise-container">
+
+  <%= form_with model: @room, local: true, html: { class: "devise-form" } do |f| %>
+    <h1 class="devise-title">施設情報の編集</h1>
+
+    <!-- エラーメッセージの表示 -->
+    <%= render "shared/error_messages", resource: @room %>
+
+    <!-- 施設名フィールド -->
+    <div class="devise-field">
+      <%= f.label :name, "施設名", class: "devise-label" %><br />
+      <%= f.text_field :name, class: "devise-input" %>
+    </div>
+
+    <!-- 詳細フィールド -->
+    <div class="devise-field">
+      <%= f.label :description, "詳細", class: "devise-label" %><br />
+      <%= f.text_area :description, class: "devise-input" %>
+    </div>
+
+    <!-- 料金フィールド -->
+    <div class="devise-field">
+      <%= f.label :price, "料金 (¥)", class: "devise-label" %><br />
+      <%= f.number_field :price, min: 1, class: "devise-input" %>
+    </div>
+
+    <!-- 住所フィールド -->
+    <div class="devise-field">
+      <%= f.label :address, "住所", class: "devise-label" %><br />
+      <%= f.text_field :address, class: "devise-input" %>
+    </div>
+
+    <!-- 画像フィールド -->
+    <div class="devise-field">
+      <%= f.label :image, "画像", class: "devise-label" %><br />
+      <%= f.file_field :image, class: "devise-input" %>
+    </div>
+
+    <!-- 登録ボタン -->
+    <div class="devise-actions">
+      <%= f.submit "登録", class: "devise-button-primary" %>
+    </div>
+
+    <!-- キャンセルリンク -->
+    <div class="devise-links">
+      <%= link_to "キャンセル", :back, class: "devise-login-link" %>
+    </div>
+
+  <% end %>
+
+</div>

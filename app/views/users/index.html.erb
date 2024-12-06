@@ -1,0 +1,31 @@
+<div class="settings-container">
+  <h1 class="settings-title">設定</h1>
+
+  <!-- アカウントセクション -->
+  <section id="account-section" class="settings-section">
+    <h2 class="settings-section-title">アカウント情報</h2>
+    <div class="settings-info">
+      <p>メールアドレス: <%= current_user.email %></p>
+      <p>パスワード: ********</p>
+      <%= link_to "編集", edit_user_registration_path, class: "settings-edit-link" %>
+    </div>
+  </section>
+
+  <!-- プロフィールセクション -->
+  <section class="settings-section">
+    <h2 class="settings-section-title">プロフィール</h2>
+    <div class="settings-info">
+      <p>
+        アイコン:
+        <% if current_user.profile_image.attached? %>
+          <%= image_tag current_user.profile_image, alt: "プロフィールアイコン", class: "settings-profile-icon" %>
+        <% else %>
+          <%= image_tag "default-icon.png", alt: "デフォルトアイコン", class: "settings-profile-icon" %>
+        <% end %>
+      </p>
+      <p>名前: <%= current_user.name %></p>
+      <p>自己紹介: <%= current_user.introduction %></p>
+      <%= link_to "編集", edit_profile_user_path(current_user), class: "settings-edit-link" %>
+    </div>
+  </section>
+</div>
