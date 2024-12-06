@@ -10,9 +10,10 @@ class ReservationsController < ApplicationController
   def confirm
     @room = Room.find(params[:room_id])
     @reservation = @room.reservations.new(reservation_params)
-    @days = (@reservation.check_out_date - @reservation.check_in_date).to_i
-    @reservation.total_price = @room.price * @reservation.guests_count * @days
 
+    stay_days
+    total_price_calculation
+    
     if @reservation.check_in_date >= @reservation.check_out_date
       flash[:notice] = "チェックアウト日はチェックイン日より後の日付を選択してください"
       render "rooms/show", status: :unprocessable_entity
@@ -48,6 +49,14 @@ class ReservationsController < ApplicationController
 
   def reservation_params
     params.permit(:check_in_date, :check_out_date, :guests_count, :total_price)
+  end
+
+  def stay_days
+    @days = (@reservation.check_out_date - @reservation.check_in_date).to_i
+  end
+
+  def total_price_calculation
+    @reservation.total_price = @room.price * @reservation.guests_count * @days
   end
 
 end
